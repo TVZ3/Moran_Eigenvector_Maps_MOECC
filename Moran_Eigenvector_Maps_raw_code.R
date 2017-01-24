@@ -51,7 +51,7 @@ plot(algae.pcnm$PCNM8, type="o", col="black", ylab = "PCNM 8")
 # Write the 4 significant PCNMs to a new object
 pcnm.significant <- algae.pcnm[,c(pcnm.sign)]
 pcnm.significant <- pcnm.significant[,c(1:3)]
-pcnm.significant
+write.csv(pcnm.significant, "MEM variables.csv", row.names = FALSE)
 
 # New PCNM analysis with 3 significant PCNM predictors
 algae.pcnm.rda2 <- rda(algae.h.det ~ ., data = pcnm.significant)
