@@ -46,7 +46,7 @@ algae.pcnm <- as.data.frame(algae.pcnm.vegan$vectors)
 nb.ev <- length(which(algae.pcnm.vegan$values > 0.0000001))
 ```
 
-###Run a PCNM on the detrended species data and determine if analysis is significant
+###determine if PCNMs significantly affect Ontario Algae communities
 ``` {r}
 algae.pcnm.rda <- rda(algae.h.det, algae.pcnm)
 anova.cca(algae.pcnm.rda) # it is significant
@@ -89,6 +89,7 @@ plot(algae.pcnm$PCNM8, type="o", col="black", ylab = "PCNM 8")
 ``` {r}
 pcnm.significant <- algae.pcnm[,c(pcnm.sign)]
 pcnm.significant <- pcnm.significant[,c(1:3)]
+write.csv(pcnm.significant, "MEMs_variables.csv", row.names = FALSE)
 ```
 
 ###New PCNM analysis with 3 significant PCNM predictors
